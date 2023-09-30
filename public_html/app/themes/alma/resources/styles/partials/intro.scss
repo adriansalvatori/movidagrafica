@@ -1,0 +1,20 @@
+// Overlay
+
+.for-overlay {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.over-overlay {
+  z-index: 99;
+}
+
+// Satellite cursor
+
+.-overlay .satellite-cursor-media {
+  filter: grayscale(1);
+}

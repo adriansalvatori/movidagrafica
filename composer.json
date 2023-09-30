@@ -1,0 +1,142 @@
+{
+  "name": "salvatori/alma-one",
+  "type": "project",
+  "license": "MIT",
+  "description": "WordPress boilerplate with Composer, easier configuration, and an improved folder structure",
+  "homepage": "https://movida.company/",
+  "authors": [
+    {
+      "name": "Adrián Salvatori",
+      "email": "adriansalvatori@gmail.com",
+      "homepage": "https://github.com/adriansalvatori"
+    }
+  ],
+  "keywords": [
+    "bedrock", "composer", "roots", "wordpress", "wp", "wp-config"
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/afragen/git-updater"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:adriansalvatori/acf-pro.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:adriansalvatori/checkout.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:adriansalvatori/learndash.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:adriansalvatori/supportboard.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:adriansalvatori/uipress-pro.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:adriansalvatori/wishlists.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:adriansalvatori/woocommerce-search-engine.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:adriansalvatori/wp-optimize.git"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "composer/installers": "^2.2",
+    "vlucas/phpdotenv": "^5.5",
+    "oscarotero/env": "^2.1",
+    "roots/bedrock-autoloader": "^1.0",
+    "roots/bedrock-disallow-indexing": "^2.0",
+    "roots/wordpress": "^6.3.1",
+    "roots/wp-config": "1.0.0",
+    "roots/wp-password-bcrypt": "1.1.0",
+    "wpackagist-theme/twentytwentythree": "^1.0",
+    "wpackagist-plugin/uipress-lite": "^3.2",
+    "wpackagist-plugin/bulky-bulk-edit-products-for-woo": "^1.1",
+    "wpackagist-plugin/woocommerce": "^8.0",
+    "roots/soil": "^4.1.1",
+    "wpackagist-plugin/autodescription": "^4.2",
+    "wpackagist-plugin/two-factor": "^0.8.1",
+    "wpackagist-plugin/imsanity": "^2.8",
+    "wpackagist-plugin/duplicate-post": "^4.5",
+    "wpackagist-plugin/safe-svg": "^2.1",
+    "wpackagist-plugin/simple-page-ordering": "^2.5",
+    "wpackagist-plugin/wp-term-order": "^1.0",
+    "wpackagist-plugin/wp-user-avatars": "^1.4",
+    "wpackagist-plugin/wp-user-profiles": "^2.6",
+    "wpackagist-plugin/acf-extended": "0.8.9.3",
+    "wpackagist-plugin/web-stories": "^1.32",
+    "wpackagist-plugin/google-site-kit": "^1.102",
+    "adriansalvatori/acf-pro" : "*",
+    "adriansalvatori/checkout" : "*",
+    "adriansalvatori/woocommerce-search-engine" : "*",
+    "adriansalvatori/wp-optimize" : "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.7.1",
+    "roave/security-advisories": "dev-latest"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "composer/installers": true,
+      "roots/wordpress-core-installer": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "installer-paths": {
+      "public_html/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin",
+        "roots/soil", 
+        "wpackagist-plugin/two-factor", 
+        "wpackagist-plugin/imsanity", 
+        "wpackagist-plugin/opengraph",
+        "wpackagist-plugin/duplicate-post", 
+        "wpackagist-plugin/safe-svg", 
+        "wpackagist-plugin/simple-page-ordering", 
+        "wpackagist-plugin/wp-term-order", 
+        "wpackagist-plugin/wp-user-avatars", 
+        "wpackagist-plugin/wp-user-profiles",
+        "adriansalvatori/acf-pro", 
+        "wpackagist-plugin/acf-extended", 
+        "adriansalvatori/wp-optimize"
+      ],
+      "public_html/app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "public_html/app/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "wordpress-install-dir": "public_html/wp"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ],
+    "post-autoload-dump": [
+      "cd ./web/app/themes/alma && composer install",
+      "cd ./web/app/themes/alma && yarn && yarn prod",
+      "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
+    ],
+    "test": [
+      "phpcs"
+    ]
+  }
+}

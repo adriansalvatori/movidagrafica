@@ -1,0 +1,11 @@
+// ______CLIENTS______CLIENTS______CLIENTS______
+
+#clients-section {
+  z-index: 9;
+
+  .container {
+    .encabezado {
+      width: clamp(300px, 26vw, 700px);
+    }
+  }
+}

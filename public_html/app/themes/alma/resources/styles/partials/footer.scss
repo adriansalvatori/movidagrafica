@@ -1,0 +1,48 @@
+// ------    FOOTHER    ------
+
+._premios {
+  transition: 0.6s;
+  filter: grayscale(100%);
+}
+
+._premios:hover {
+  transition: 0.4s;
+  filter: grayscale(0%);
+}
+
+//
+// ------    NEWSLETTER    ------
+
+[data-newsletter] {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 9;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.6s;
+}
+
+[data-newsletter]._newsletter-animation {
+  transition: 0.6s;
+  pointer-events: all !important;
+  opacity: 1 !important;
+}
+
+.formularie {
+  z-index: 9;
+  border-radius: 20px;
+  height: 400px;
+  width: 300px;
+  margin: 0 auto;
+  display: flex !important;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  background: radial-gradient(circle, #382515 0%, #0e0f13 88%);
+  box-shadow: 0px 0px 45px #382515;
+}
+
+._boton-group {
+  overflow: initial;
+}

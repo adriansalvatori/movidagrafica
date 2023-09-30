@@ -1,0 +1,66 @@
+// ______BEGINNING______BEGINNING______BEGINNING______
+
+#beginning-section {
+  z-index: 9;
+
+  .container {
+    .encabezado {
+      .container-image {
+        .holamovida-image {
+          width: 95%;
+          min-width: 280px;
+        }
+
+        .arrow-pulse {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+
+        // &:hover .arrow-pulse {
+        //   animation-name: click-me;
+        //   animation-duration: 1.5s;
+        //   animation-iteration-count: infinite;
+        // }
+      }
+    }
+  }
+}
+
+@keyframes click-me {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(1);
+  }
+}
+
+.formularie {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: block;
+  background: $dark;
+  .bg {
+    width: 100vw;
+    height: 10vh;
+    position: absolute;
+    background: $dark;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .arrow-pulse {
+    display: none;
+  }
+}

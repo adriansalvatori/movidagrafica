@@ -1,0 +1,206 @@
+/**
+ * Button
+ */
+
+.button {
+  transition: ease-in 0.2s;
+  .icon,
+  svg {
+    transition: ease-in 0.2s;
+  }
+
+  &.is-nude {
+    background: transparent;
+    border: none;
+    color: $dark;
+    font-weight: 700;
+  }
+
+  &.is-rounded {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  span {
+    pointer-events: none;
+  }
+}
+
+.wp-block-button {
+  &__link {
+    @extend %control;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &.is-style-outline {
+    .wp-block-button__link {
+      @extend %control;
+      color: $white;
+      background: transparent;
+      border: solid $control-border-width $primary;
+    }
+  }
+
+  &.is-style-solid {
+    .wp-block-button__link {
+      @extend %control;
+      color: $white;
+      background: $primary;
+    }
+  }
+}
+
+.menu-item a {
+  color: $white;
+  margin-right: 20px;
+}
+
+/*** Intro Cards */
+
+.intro-card-container {
+  a.image {
+    position: relative;
+    transition: ease-out 0.3s;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      transition: ease-out 0.3s;
+      content: '';
+      background: linear-gradient(
+        11deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(9, 9, 121, 0.3788224762561274) 36%,
+        rgba(0, 212, 255, 0) 100%
+      );
+      background-size: 200% 100%;
+    }
+
+    .card-name {
+      position: relative;
+      transition: ease-out 0.3s;
+      top: 20px;
+      opacity: 0;
+    }
+
+    &:hover {
+      clip-path: polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%);
+
+      &:after {
+        background-position: 100%;
+      }
+
+      .card-name {
+        position: relative;
+        z-index: 9;
+        top: -40px;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.icon.is-filled {
+  cursor: pointer;
+  svg {
+    fill: currentColor;
+  }
+}
+
+.exit {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px $danger;
+  transition: 0.3s;
+
+  &:hover {
+    transform: rotate(-21deg);
+    transition: 0.3s;
+  }
+}
+
+// Planet button
+
+@mixin planet-button($font-color) {
+  color: $font-color;
+  display: flex;
+  margin-right: 40px;
+  align-items: center;
+  transition: 0.3s;
+
+  .icon {
+    margin-right: 15px;
+  }
+
+  &:hover {
+    color: $font-color !important;
+    transform: rotate(-3deg);
+    transition: 0.3s;
+  }
+}
+
+.planet-button-primary {
+  @include planet-button($danger);
+}
+
+.planet-button-dark {
+  @include planet-button($dark);
+}
+
+.planet-button-light {
+  @include planet-button($light);
+}
+
+// adaptacion de botones de estrella de alejandro para que soporte los colores de bulma
+
+@mixin star-button($star-button-color) {
+  position: relative;
+
+  svg {
+    path {
+      fill: $star-button-color;
+    }
+    circle {
+      stroke: $star-button-color;
+    }
+  }
+  span {
+    color: $star-button-color;
+  }
+
+  .svg-estrella {
+    position: absolute;
+    left: 0;
+    transition: 0.6s;
+    opacity: 0;
+  }
+
+  &:hover {
+    .svg-estrella {
+      opacity: 1 !important;
+    }
+  }
+}
+
+.hover-estrella-primary {
+  @include star-button($danger);
+}
+
+.hover-estrella-dark {
+  @include star-button($dark);
+}
+
+.hover-estrella-light {
+  @include star-button($light);
+}

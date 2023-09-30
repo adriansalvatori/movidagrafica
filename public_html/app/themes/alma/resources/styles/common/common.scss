@@ -1,0 +1,107 @@
+strong {
+  color: $dark !important;
+}
+
+*:focus {
+  outline: unset !important;
+}
+
+.button {
+  display: inline-flex !important;
+  &.btn-portafolio {
+    transition: 0.7s;
+    &:hover {
+      @extend .has-background-black;
+      path {
+        stroke: white !important;
+      }
+    }
+  }
+  &.width-238 {
+    width: 238px;
+    height: 68px;
+    border-radius: 34px;
+  }
+  &.circle {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+  }
+  &.is-down {
+    transition: 0.4s;
+    &:hover {
+      box-shadow: 0 0 0 0.125em rgba(249, 249, 249, 0.25);
+    }
+  }
+  &.is-inverse {
+    background: transparent !important;
+    border: unset !important;
+    padding: 0 !important;
+    @extend .has-text-white;
+  }
+
+  //   &.hover-estrella {
+  //     @extend .is-relative;
+  //     .svg-strella {
+  //       position: absolute;
+  //       left: 0;
+  //       transition: 0.6s;
+  //       opacity: 0;
+  //     }
+  //     &:hover {
+  //       .svg-strella {
+  //         opacity: 1 !important;
+  //       }
+  //     }
+  //   }
+}
+
+input:not(.input) {
+  &:not([type='checkbox']):not([type='submit']):not([type='radio']):not(
+      [type='file']
+    ) {
+    @extend %control;
+    margin-top: $size-7;
+  }
+
+  &[type='submit'] {
+    @extend %control;
+    color: $white;
+    background: $primary;
+    margin-top: $size-2;
+  }
+}
+
+button:not(.button) {
+  @extend %control;
+  color: $white;
+  background: $primary;
+  margin-top: $size-2;
+}
+
+textarea:not(.textarea) {
+  @extend %control;
+  margin-top: $size-7;
+}
+
+select:not(.select) {
+  @extend %control;
+  margin-top: $size-7;
+}
+
+.comment-author.vcard {
+  display: flex;
+  margin-bottom: 1rem;
+
+  img {
+    margin-right: 10px;
+  }
+
+  .fn {
+    margin-right: 5px;
+  }
+}
+
+.card {
+  border-radius: $alma-radius;
+}

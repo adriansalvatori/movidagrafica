@@ -1,0 +1,37 @@
+// ______SERVICES______SERVICES______SERVICES______
+
+#odyssey-section {
+  z-index: 9;
+
+  .container {
+    .videoOdyssey {
+      position: absolute;
+      right: 0;
+
+      video {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        display: block;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.myTitleOdyssey {
+  line-height: 4rem;
+}
+
+.boxOdyssey {
+  display: inline-flex;
+  flex-direction: row;
+  border-radius: 10px;
+  transition: 0.3s;
+
+  &:hover {
+    box-shadow: 0px 0px 7px $danger;
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
+}
